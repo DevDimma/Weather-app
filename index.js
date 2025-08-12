@@ -1,9 +1,25 @@
 function displayTemperature(response) {
-  console.log(response.data);
   let temperatureElement = document.querySelector("#current-temperature");
   let temperature = Math.round(response.data.temperature.current);
   let cityElement = document.querySelector("#current-city");
+  let descriptionElement = document.querySelector("#description");
+  let humidityElement = document.querySelector("#Humidity-value");
+  let windElement = document.querySelector("#Wind");
+  let timeElement = document.querySelector("#current-date");
+  // let time = formatDate(new Date(response.data.time * 1000));
+  let date = new Date(response.data.time * 1000);
+
+
+ console.log(response.data.condition.description);
+
+ 
+
    cityElement.innerHTML = response.data.city;
+   timeElement.innerHTML = formatDate(date);
+  //  timeElement.innerHTML = time;
+   descriptionElement.innerHTML = response.data.condition.description;
+   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+   windElement.innerHTML = `${response.data.wind.speed}km/h`;
   temperatureElement.innerHTML = temperature;
 }
 
