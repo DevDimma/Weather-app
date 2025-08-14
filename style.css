@@ -157,3 +157,20 @@ footer {
     white-space: nowrap;
   }
 }
+
+form {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+
+form input[type="search"],
+form input[type="text"] {
+  flex: 1;
+  min-width: 0;
+}
+
+form button {
+  flex-shrink: 0;
+}
